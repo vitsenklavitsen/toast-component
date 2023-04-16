@@ -4,12 +4,11 @@ function useKeydown(keyCode, callback) {
   useEffect(() => {
     function handleKeydown(event) {
       if (event.key === keyCode) {
-        callback();
+        callback(event);
       }
     }
 
     window.addEventListener("keydown", handleKeydown);
-    console.log("Eventlistener added");
 
     return () => {
       window.removeEventListener("keydown", handleKeydown);
